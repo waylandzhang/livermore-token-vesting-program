@@ -1,0 +1,46 @@
+use num_derive::FromPrimitive;
+use solana_program::{
+    decode_error::DecodeError,
+    program_error::{ProgramError},
+};
+use thiserror::Error;
+
+/// Errors that may be returned by the Token vesting program.
+#[derive(Clone, Debug, Eq, Error, FromPrimitive, PartialEq)]
+pub enum VestingError {
+    // Invalid instruction
+    #[error("Invalid Instruction")]
+    InvalidInstruction,
+
+    // Tokens are still locked
+    #[error("Tokens are still locked")]
+    TokensLocked,
+
+    // Invalid amount
+    #[error("Invalid amount")]
+    InvalidAmount,
+
+    // Invalid year
+    #[error("Invalid year")]
+    InvalidYear,
+
+    // Invalid time
+    #[error("Invalid time")]
+    InvalidTime,
+
+    // Exceeds annual limit
+    #[error("Exceeds annual issuance limit")]
+    ExceedsYearlyLimit,
+}
+
+impl From<VestingError> for ProgramError {
+    fn from(e: VestingError) -> Self {
+        ProgramError::Custom(e as u32)
+    }
+}
+
+impl<T> DecodeError<T> for VestingError {
+    fn type_of() -> &'static str {
+        "VestingError"
+    }
+}
