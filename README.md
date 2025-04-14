@@ -75,6 +75,16 @@ solana program deploy --program-id <PROGRAM_ID_KEYPAIR> target/deploy/livermore_
 
 The Livermore Project is scheduled to launch on March 10, 2025, with token distribution continuing over a 5-year period according to the vesting schedules defined in this program.
 
+## Audit
+
+The Livermore Token Vesting Program has been audited by Hashlock, a leading blockchain security firm. The audit confirms the program's security features and validates its implementation according to best practices.
+
+- **Audit Provider**: Hashlock
+- **Audit Status**: Secure
+- **Audit Date**: April 2025
+
+For full audit details, visit [Hashlock's audit page](https://hashlock.com/audits/livermore-ai) or check the original report in the `/audit` folder of this repository.
+
 ## Learn More
 
 For more information about the Livermore Project, its tokenomics, and the underlying AI-driven investment platform, visit the [official whitepaper](https://www.investagentpro.com/solana_token_launch).
